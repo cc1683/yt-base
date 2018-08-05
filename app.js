@@ -1,6 +1,10 @@
 const express     = require('express'),
       app         = express(),
+      bodyParser  = require('body-parser');
       mongoose    = require('mongoose');
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //! ---------- DB setup ---------- //
 mongoose.connect('mongodb://localhost:27017/yt_base', { useNewUrlParser: true});
@@ -26,9 +30,6 @@ let Doc = mongoose.model('Doc', docSchema);
 //     }
 // })
 
-app.set('view engine', 'ejs');
-
-
 //! ---------- Routes ---------- //
 
 //* home and redirect to the docs route
@@ -36,6 +37,7 @@ app.get('/', (req, res)=>{
     res.redirect('/index');
 })
 
+//* INDEX route
 app.get('/index', (req, res)=>{
     //* retrieve data form DB
     Doc.find({}, (err, docs)=>{
@@ -47,8 +49,25 @@ app.get('/index', (req, res)=>{
             });
         }
     })
-
 })
+
+//* NEW route
+app.get('/index/new', (req, res)=>{
+    res.render('new');
+})
+
+//* CREATE route
+app.post('/index', (req, res)=>{
+    Doc.create(req.body.doc, (err, newDoc)=>{
+        if(err) {
+            console.log(err);
+            res.render('docs');
+        } else {
+            res.redirect('/index');
+        }
+    });
+})
+
 
 
 app.listen(3000,()=>{
