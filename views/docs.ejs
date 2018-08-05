@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+    <div class="container mt-5">
+        <h1>Youtube Channel List</h1>
+        <div class="row text-center justify-content-center mt-5">
+            <div class="col-12 d-flex flex-wrap">
+                <% bases.forEach(base => { %>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card my-3">
+                            <h5 class="card-header"><%= base.type %></h5>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= base.name %></h5>
+                                <p class="card-text text-left lead"><%= base.desc %></p>
+                                <a href="<%= base.link %>" class="btn btn-primary">Visit Channel</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+
+<% include partials/footer %>
