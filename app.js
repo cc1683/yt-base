@@ -108,6 +108,18 @@ app.post('/index/:id/', (req, res)=>{
     })
 })
 
+//* DELETE route
+app.get('/index/:id/delete', (req, res)=>{
+    Doc.findByIdAndRemove(req.params.id, (err, deletedDoc)=>{
+        if(err) {
+            console.log(err);
+            res.redirect('/index');
+        } else {
+            res.redirect('/index');
+        }
+    })
+})
+
 
 app.listen(3000,()=>{
     console.log('Server started on port 3000....');

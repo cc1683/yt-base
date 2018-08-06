@@ -7,11 +7,12 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= doc.name %></h5>
                         <p class="card-text text-left lead"><%= doc.desc %></p>
-                        <a href="<%= doc.link %>" class="btn btn-primary">Visit Channel</a>
+                        <a href="<%= doc.link %>" class="btn btn-primary" target="_blank">Visit Channel</a>
                     </div>
                     <div class="my-2">
                         <a href="/index" class="btn btn-secondary">Go Back</a>
                         <a href="/index/<%= doc._id %>/edit" class="btn btn-warning">Edit</a>
+                        <a href="/index/<%= doc._id %>/delete" class="btn btn-danger">Delete</a>
                     </div>
                 </div>
             </div>

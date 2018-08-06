@@ -10,8 +10,8 @@
                             <h5 class="card-header"><%= doc.type %></h5>
                             <div class="card-body">
                                 <h5 class="card-title"><%= doc.name %></h5>
-                                <p class="card-text lead"><%= doc.desc %></p>
-                                <a href="<%= doc.link %>" class="btn btn-primary">Visit Channel</a>
+                                <p class="card-text lead"><%= doc.desc.substring(0, 20) %>....</p>
+                                <a href="<%= doc.link %>" class="btn btn-primary" target="_blank">Visit Channel</a>
                             </div>
                             <div class="my-2">
                                 <a href="/index/<%= doc._id %>" class="btn btn-info">READ MORE</a>
