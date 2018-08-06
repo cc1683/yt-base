@@ -68,6 +68,20 @@ app.post('/index', (req, res)=>{
     });
 })
 
+//* SHOW route
+app.get('/index/:id', (req, res)=>{
+    Doc.findById(req.params.id, (err, foundDoc)=>{
+        if(err) {
+            console.log(err);
+            res.render('docs');
+        } else {
+            res.render('show', {
+                doc: foundDoc
+            });
+        }
+    })
+})
+
 
 
 app.listen(3000,()=>{

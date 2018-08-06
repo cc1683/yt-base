@@ -1,0 +1,19 @@
+<% include partials/header %>
+    <div class="container mt-5">
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <div class="card my-3">
+                    <h5 class="card-header"><%= doc.type %></h5>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= doc.name %></h5>
+                        <p class="card-text text-left lead"><%= doc.desc %></p>
+                        <a href="<%= doc.link %>" class="btn btn-primary">Visit Channel</a>
+                    </div>
+                    <div class="my-2">
+                        <a href="/index" class="btn btn-warning">Go Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include partials/footer %>
