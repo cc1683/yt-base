@@ -1,0 +1,29 @@
+<% include partials/header %>
+    <div class="container mt-5">
+        <h1 class="text-center">Edit <%= doc.name %></h1>
+        <div class="row justify-content-center text-center mt-3">
+            <form action="/index/<%= doc._id %>" method="POST" class="w-50">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="doc[name]" placeholder="Channel" value="<%= doc.name %>">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="doc[link]" placeholder="Link" value="<%= doc.link %>">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="doc[desc]" placeholder="Desc." value="<%= doc.desc %>">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Channel Type</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="doc[type]" value="<%= doc.type %>">
+                      <option>Programming</option>
+                      <option>Entertainment</option>
+                      <option>Gaming</option>
+                      <option>Tech News</option>
+                      <option>Sport</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+<% include partials/footer %>

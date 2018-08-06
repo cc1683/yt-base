@@ -82,6 +82,31 @@ app.get('/index/:id', (req, res)=>{
     })
 })
 
+//* EDIT route
+app.get('/index/:id/edit', (req, res)=>{
+    Doc.findById(req.params.id, (err, foundDoc)=>{
+        if(err) {
+            console.log(err);
+            res.render('docs');
+        } else {
+            res.render('edit', {
+                doc: foundDoc
+            });
+        }
+    })
+})
+
+//* UPDATE route
+app.post('/index/:id/', (req, res)=>{
+    Doc.findByIdAndUpdate(req.params.id, req.body.doc, (err, updatedDoc)=>{
+        if(err) {
+            console.log(err);
+            res.redirect('/index');
+        } else {
+            res.redirect('/index/' + req.params.id);
+        }
+    })
+})
 
 
 app.listen(3000,()=>{
